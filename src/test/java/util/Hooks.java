@@ -1,6 +1,5 @@
 package util;
 
-import Pages.CookiePage;
 import Pages.LoginPage;
 import io.cucumber.java.*;
 import org.openqa.selenium.*;
