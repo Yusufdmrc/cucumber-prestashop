@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import util.Constants;
 import util.ElementHelper;
+import util.LoginHelper;
 
 import java.time.Duration;
 
@@ -18,7 +19,7 @@ public class LoginPage {
     ElementHelper elementHelper;
     WebDriverWait wait;
 
-    @FindBy(xpath = "//span[normalize-space()='Sign in']")
+    @FindBy(css = "div.user-info span.hidden-sm-down")
     WebElement signInButton;
     @FindBy(id = "field-email")
     WebElement usernameBox;
@@ -44,22 +45,35 @@ public class LoginPage {
         elementHelper.click(signInButton);
     }
     public void writeUsernameForUsernameField(String username) {
-        usernameBox.sendKeys(username);
+        usernameBox.sendKeys(LoginHelper.getUserName(username));
     }
 
     public void writePasswordForPasswordField(String password) {
-        usernameBox.sendKeys(password);
+        passwordBox.sendKeys(LoginHelper.getPassword(password));
     }
 
     public void clickLogin() {
+        elementHelper.click(loginButton);
     }
 
     public void checkUnsuccessful() {
+        elementHelper.checkNotVisible(signOutButton);
     }
 
     public void checkSuccessful() {
+     elementHelper.checkVisible(signOutButton);
     }
 
     public void dontCredentialValidErrorMessage(String message) {
+        elementHelper.checkVisible(errorMessage);
+        Assert.assertEquals(errorMessage.getText(),message);
+    }
+
+    public void login(String username,String password){
+        clickSignInButton();
+        writeUsernameForUsernameField(username);
+        writePasswordForPasswordField(password);
+        clickLogin();
+        checkSuccessful();
     }
 }

@@ -12,7 +12,6 @@ public class ElementHelper {
     WebDriver driver;
     WebDriverWait wait;
     Actions action;
-
     public ElementHelper(WebDriver driver){
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(Constants.PAGE_LOAD_TIMEOUT));

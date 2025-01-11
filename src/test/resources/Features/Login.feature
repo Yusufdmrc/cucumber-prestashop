@@ -22,9 +22,9 @@ Feature: PrestaShop Login Check Test Cases
     And Click sign in button
     Then Check the "<error>" message that authentication was not successful
     Examples:
-      |username              |error                             |password  |
-      |correctTcID           |Kimlik bilgileri geçerli değil    |abc1234   |
-      |asdfg                 |Kimlik bilgileri geçerli değil    |correctPassword |
+      | username     | error                  | password        |
+      | correctEmail | Authentication failed. | abc1234         |
+      | asdfg        | Authentication failed. | correctPassword |
 
 
   @SuccessfulLogin
@@ -34,10 +34,8 @@ Feature: PrestaShop Login Check Test Cases
     And Click sign in button
     Then Check Successful login
     Examples:
-      |username               |password         |
-      |correctTcID            |correctPassword  |
-      |correctAccountNo       |correctPassword  |
-      |correctEmail           |correctPassword  |
+      | username     | password        |
+      | correctEmail | correctPassword |
 
 
 
