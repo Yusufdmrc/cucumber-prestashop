@@ -25,7 +25,6 @@ public class DriverFactory {
     }
 
     public static WebDriver initialize_Driver(String browser,String environment){
-
         if (browser.equals("chrome")) {
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();

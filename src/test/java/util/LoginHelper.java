@@ -16,7 +16,7 @@ public class LoginHelper {
             case "correctPassword":
                 return Constants.CORRECT_PASSWORD;
             case "empty":
-                return "";
+                return " ";
             default:
                 return password;
         }

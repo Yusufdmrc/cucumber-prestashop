@@ -7,7 +7,7 @@ public class Constants {
     public static final int IMPLICIT_WAIT = 20;
     public static final int EXPLICIT_WAIT = 15;
     public static final int PAGE_LOAD_TIMEOUT = 10;
-    public static final String CORRECT_EMAIL="yusuf@gmail.com";
-    public static final String CORRECT_PASSWORD = "Test123test.";
+    public static final String CORRECT_EMAIL="yusuff@gmail.com";
+    public static final String CORRECT_PASSWORD = "Test123test..";
 }
 

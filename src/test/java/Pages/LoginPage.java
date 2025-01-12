@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import util.Constants;
@@ -19,6 +20,8 @@ public class LoginPage {
     ElementHelper elementHelper;
     WebDriverWait wait;
 
+    @FindBy(xpath = "//iframe[@id='framelive']")
+    WebElement iframe;
     @FindBy(css = "div.user-info span.hidden-sm-down")
     WebElement signInButton;
     @FindBy(id = "field-email")
@@ -42,6 +45,7 @@ public class LoginPage {
         String expectedUrl = Constants.TEST_URL;
         String actualUrl = driver.getCurrentUrl();
         Assert.assertEquals(actualUrl, expectedUrl);
+        wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(iframe));
         elementHelper.click(signInButton);
     }
     public void writeUsernameForUsernameField(String username) {

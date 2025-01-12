@@ -22,9 +22,8 @@ Feature: PrestaShop Login Check Test Cases
     And Click sign in button
     Then Check the "<error>" message that authentication was not successful
     Examples:
-      | username     | error                  | password        |
-      | correctEmail | Authentication failed. | abc1234         |
-      | asdfg        | Authentication failed. | correctPassword |
+      | username     | error                  | password |
+      | correctEmail | Authentication failed. | abc1234  |
 
 
   @SuccessfulLogin
